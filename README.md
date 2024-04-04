@@ -50,3 +50,9 @@ Resposta respostas[] = {
   VERDADEIRO,
   FALSO
 }; // Esse bloco corresponde às respostas das perguntas. Devem ser maiúsculas.
+
+## Vídeo Demonstrativo
+[Assista ao vídeo demonstrativo](https://www.youtube.com/watch?v=U8Usizv7JS8)
+
+## Projeto no Wokwi
+[Acesse o projeto no Wokwi](https://wokwi.com/projects/394081962231636993)
