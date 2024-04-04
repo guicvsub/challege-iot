@@ -2,7 +2,7 @@
 - Gabriel Souza Fiore – RM553710
 - Guilherme Santiago – RM552321
 - Michel Lepine – RM553558
-- 
+  
 # Desafio IoT Quiz
 
 Este projeto consiste em uma adaptação de um quiz feito no Kahoot! utilizando Arduino e outros componentes eletrônicos.
