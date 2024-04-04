@@ -1,11 +1,17 @@
-# Desafio IoT Quiz
-
-Este projeto consiste em uma adaptação de um quiz feito no Kahoot! utilizando Arduino e outros componentes eletrônicos.
-
 ## Equipe
 - Gabriel Souza Fiore – RM553710
 - Guilherme Santiago – RM552321
 - Michel Lepine – RM553558
+- 
+# Desafio IoT Quiz
+
+Este projeto consiste em uma adaptação de um quiz feito no Kahoot! utilizando Arduino e outros componentes eletrônicos.
+
+## Vídeo Demonstrativo
+[Assista ao vídeo demonstrativo](https://www.youtube.com/watch?v=U8Usizv7JS8)
+
+## Projeto no Wokwi
+[Acesse o projeto no Wokwi](https://wokwi.com/projects/394081962231636993)
 
 ## Equipamentos Utilizados
 | Nome            | Quantidade |
