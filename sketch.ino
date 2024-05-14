@@ -3,17 +3,17 @@
 #include <LiquidCrystal_I2C.h>
 
 #define LCD_ADDR 0x27
-#define LCD_COLS 20
-#define LCD_ROWS 4
+#define LCD_COLS 16
+#define LCD_ROWS 2
+#define SCROLL_DELAY 400
 
 LiquidCrystal_I2C lcd(LCD_ADDR, LCD_COLS, LCD_ROWS);
 
 const int btnVerdadeiro = 7;
 const int btnFalso = 6;
-const int ledVerde = 13;     // Pino do LED verde
-const int ledVermelho = 11;  // Pino do LED vermelho
-const int buzzer = 2;         // Pino do buzzer
-
+const int ledVerde = 13;
+const int ledVermelho = 11;
+const int buzzer = 2;
 enum Resposta {
   FALSO,
   VERDADEIRO
@@ -21,25 +21,17 @@ enum Resposta {
 
 int currentQuestion = 0;
 String perguntas[] = {
-  "O acucar e um alimento saudavel?",
-  "Frutas  ajudam a prevenir doencas?",
-  "Cafeina pode causar dependencia?",
-  "O sistema solar tem o sol como centro?",
-  "A lua e maior que a terra?",
-  "As plantas precisam de agua para viver?",
-  "Os peixes respiram embaixo da agua?",
-  "Os passaros tem penas para voar?",
-  "O Sol eh uma estrela?",
-  "Os dinossauros ainda existem?"
+  "Comer frutas e vegetais todos os dias ajuda a manter o corpo saudavel",
+  "Tomar banho com agua gelada no inverno ajuda a evitar gripes e resfriados",
+  "Ficar muito tempo em frente a telas (computador, celular, tablet) pode prejudicar a visao",
+  "Dormir mais de oito horas todas as noites e importante para o bom funcionamento do cerebro",
+  "O consumo de alimentos gordurosos em excesso pode aumentar o risco de problemas de saude, como colesterol alto",
+  "Se voce engolir um chiclete, ele ficara preso no seu estomago para sempre"
 };
 
 Resposta respostas[] = {
-  FALSO,
-  VERDADEIRO,
-  VERDADEIRO,
   VERDADEIRO,
   FALSO,
-  VERDADEIRO,
   VERDADEIRO,
   VERDADEIRO,
   VERDADEIRO,
@@ -47,7 +39,7 @@ Resposta respostas[] = {
 };
 
 void setup() {
-  lcd.init(); // Inicializa o LCD
+  lcd.init();
   lcd.backlight();
   lcd.print("Responda com:");
   lcd.setCursor(0, 1);
@@ -59,14 +51,16 @@ void setup() {
   pinMode(ledVermelho, OUTPUT);
   pinMode(buzzer, OUTPUT);
 
+
   Serial.begin(9600);
 }
 
 void loop() {
   lcd.clear();
-  lcd.print(perguntas[currentQuestion]);
+  scrollQuestion(perguntas[currentQuestion]);
 
-  delay(2000); // Aguarda um tempo antes de iniciar a verificação da resposta
+
+  delay(2000); 
 
   while (true) {
     if (digitalRead(btnVerdadeiro) == HIGH) {
@@ -87,26 +81,37 @@ void loop() {
     currentQuestion = 0;
     lcd.clear();
     lcd.print("Fim de jogo!");
-    delay(5000); // Mostra a mensagem de fim de jogo por 5 segundos
+    delay(5000); 
   }
+}
+
+
+void scrollQuestion(String question) {
+  int len = question.length();
+  int teste = len - LCD_COLS + 1;
+    for (int i = 0; i < teste; i++) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print(question.substring(i, min(i + LCD_COLS, len)));
+      delay(SCROLL_DELAY);
+    }
 }
 
 void checkAnswer(Resposta answer) {
   lcd.clear();
   if (answer == respostas[currentQuestion]) {
     lcd.print("Correto!");
-    digitalWrite(ledVerde, HIGH);    // Acende o LED verde
-    digitalWrite(ledVermelho, LOW); // Garante que o LED vermelho esteja apagado
-    tone(buzzer, 1000, 500);         // Toca um som suave (1kHz) por 500ms
+    digitalWrite(ledVerde, HIGH);
+    digitalWrite(ledVermelho, LOW);
+    tone(buzzer, 1000, 500);
   } else {
     lcd.print("Errado!");
-    digitalWrite(ledVerde, LOW);    // Garante que o LED verde esteja apagado
-    digitalWrite(ledVermelho, HIGH); // Acende o LED vermelho
-    tone(buzzer, 2000, 500);         // Toca um som agudo (2kHz) por 500ms
+    digitalWrite(ledVerde, LOW);
+    digitalWrite(ledVermelho, HIGH);
+    tone(buzzer, 2000, 500);
   }
   delay(1000);
-    digitalWrite(ledVerde, LOW);    // Garante que o LED verde esteja apagado
-    digitalWrite(ledVermelho, LOW);
-  noTone(buzzer); // Desliga o buzzer
-
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledVermelho, LOW);
+  noTone(buzzer);
 }
