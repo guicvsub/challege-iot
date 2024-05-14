@@ -5,13 +5,13 @@
   
 # Desafio IoT Quiz
 
-Este projeto consiste em uma adaptação de um quiz feito no Kahoot! utilizando Arduino e outros componentes eletrônicos.
+Este projeto consiste em uma adaptação de um quiz feito no Kahoot! Utilizando Arduino e outros componentes eletrônicos.
 
 ## Vídeo Demonstrativo
-[Assista ao vídeo demonstrativo](https://www.youtube.com/watch?v=U8Usizv7JS8)
+[Assista ao vídeo demonstrativo ]()
 
 ## Projeto no Wokwi
-[Acesse o projeto no Wokwi](https://wokwi.com/projects/394081962231636993)
+[Acesse o projeto no Wokwi](https://wokwi.com/projects/397315509790205953)
 
 ## Equipamentos Utilizados
 | Nome            | Quantidade |
@@ -20,14 +20,14 @@ Este projeto consiste em uma adaptação de um quiz feito no Kahoot! utilizando 
 | LEDs            | 2          |
 | Buzzer          | 1          |
 | Resistor (220Ω) | 2          |
-| LCD 12C (20x4)  | 1          |
+| LCD 12C (16x2)  | 1          |
 | Resistor (kΩ)   | 2          |
 | Botões          | 2          |
 
 ## Bibliotecas Utilizadas
 - Arduino.h para utilizar funções do Arduino
 - Wire.h para lidar com dispositivos I2C
-- LiquidCrystal_I2C.h para lidar com LCD 12C (20x4). Em caso de troca de modelo, a biblioteca deve ser alterada (16x2 12C funciona sem necessidade de alterações).
+- LiquidCrystal_I2C.h para lidar com LCD 12C (16x2). 
 
 ## Pinagem do Arduino
 - LCD: SDA = A4, SLC = A5 (padrão, não deve ser alterado)
@@ -45,16 +45,11 @@ String perguntas[] = {
 }; // Esse bloco corresponde às perguntas (se encontram no wokwi). As perguntas devem ser strings, não conter acentuações ou caracteres especiais, devido à limitação do display.
 
 Resposta respostas[] = {
-  FALSO,
-  VERDADEIRO,
-  VERDADEIRO,
   VERDADEIRO,
   FALSO,
-  VERDADEIRO,
   VERDADEIRO,
   VERDADEIRO,
   VERDADEIRO,
   FALSO
-}; // Esse bloco corresponde às respostas das perguntas. Devem ser maiúsculas.
-
-
+};
+ // Esse bloco corresponde às respostas das perguntas. Devem ser maiúsculas.
