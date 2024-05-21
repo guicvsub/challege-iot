@@ -8,7 +8,7 @@
 Este projeto consiste em uma adaptação de um quiz feito no Kahoot! Utilizando Arduino e outros componentes eletrônicos.
 
 ## Vídeo Demonstrativo
-[Assista ao vídeo demonstrativo ]()
+[Assista ao vídeo demonstrativo ](https://youtu.be/geW_FOzgTOM?si=hCrfFG9e2v4pq_Jh)
 
 ## Projeto no Wokwi
 [Acesse o projeto no Wokwi](https://wokwi.com/projects/397315509790205953)
@@ -20,7 +20,7 @@ Este projeto consiste em uma adaptação de um quiz feito no Kahoot! Utilizando 
 | LEDs            | 2          |
 | Buzzer          | 1          |
 | Resistor (220Ω) | 2          |
-| LCD 12C (16x2)  | 1          |
+| LCD I2C (16x2)  | 1          |
 | Resistor (kΩ)   | 2          |
 | Botões          | 2          |
 
